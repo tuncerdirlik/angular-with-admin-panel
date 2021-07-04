@@ -1,0 +1,16 @@
+<h5>
+  {{isEditing ? "Kategori Düzenle": "Yeni Kategori Ekle"}}
+</h5>
+
+<hr>
+
+<form #form="ngForm" (ngSubmit)="save(form)">
+  <div class="form-group">
+    <label>Kategori Adı</label>
+    <input type="text" class="form-control" name="name" [(ngModel)]="category.name">
+  </div>
+  
+  <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+  <a routerLink="/admin/main/categories" class="btn btn-warning">Vazgeç</a>
+
+</form>

@@ -1,0 +1,45 @@
+<navbar></navbar>
+
+<div class="container pt-100 mb-5">
+
+  <div *ngIf="orderSent" class="m-2 text-center">
+    <h2>Siparişiniz alınmıştır.</h2>
+    <button class="btn btn-primary" routerLink="/shop">Alışverişe Devam Et</button>
+  </div>
+
+  <form *ngIf="!orderSent" #form="ngForm" (ngSubmit)="submitOrder(form)" class="m-4">
+    <div class="form-group">
+      <label>Adınız</label>
+      <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="order.name" required>
+      <span *ngIf="submitted && name.invalid" class="text-danger">Boş geçilemez</span>
+    </div>
+    <div class="form-group">
+      <label>Adres</label>
+      <input type="text" class="form-control" name="address" #address="ngModel" [(ngModel)]="order.address" required>
+      <span *ngIf="submitted && address.invalid" class="text-danger">Boş geçilemez</span>
+    </div>
+    <div class="form-group">
+      <label>Şehir</label>
+      <input type="text" class="form-control" name="city" #city="ngModel" [(ngModel)]="order.city" required>
+      <span *ngIf="submitted && city.invalid" class="text-danger">Boş geçilemez</span>
+    </div>
+    <div class="form-group">
+      <label>Telefon</label>
+      <input type="text" class="form-control" name="phone" #phone="ngModel" [(ngModel)]="order.phone" required>
+      <span *ngIf="submitted && phone.invalid" class="text-danger">Boş geçilemez</span>
+    </div>
+    <div class="form-group">
+      <label>E-Posta</label>
+      <input type="text" class="form-control" name="email" #email="ngModel" [(ngModel)]="order.email" required>
+      <span *ngIf="submitted && email.invalid" class="text-danger">Boş geçilemez</span>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Siparişi Tamamla</button>
+      <button routerLink="/shop" class="btn btn-primary ml-2">Alışverişe Devam Et</button>
+    </div>
+
+  </form>
+
+
+</div>
